@@ -1,0 +1,19 @@
+{
+  "name": "test1-beginning",
+  "version": "1.0.0",
+  "description": "For testing react",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nguyenphuong13th/nguyenphuong13th.github.io.git"
+  },
+  "author": "HoangPhuong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nguyenphuong13th/nguyenphuong13th.github.io/issues"
+  },
+  "homepage": "https://github.com/nguyenphuong13th/nguyenphuong13th.github.io#readme"
+}
