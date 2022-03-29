@@ -1,0 +1,6 @@
+SELECT ceiling(AVG(Salary)-AVG(cast(REPLACE(Salary,'0','') AS int)))+1
+FROM EMPLOYEES;
+
+--use replace to find the value  which missing character from the salary then use cast to convert it to number then use avg then use avg(Salary)-avg(false salary) +1 
+-- second method on msql:SELECT CEIL(AVG(Salary)-AVG(REPLACE(Salary,'0','')))
+--FROM EMPLOYEES;  work without "+1"

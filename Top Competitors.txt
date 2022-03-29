@@ -1,0 +1,39 @@
+select H.hacker_id,H.name from Submissions S
+--join submission table with Challenge table to have difficulty_level by challenge_id
+join Challenges C on C.challenge_id = S.challenge_id
+--join Difficulty table with Challenge table to have each full score of each difficulty_level by difficulty_level 
+join Difficulty D on D.difficulty_level = C.difficulty_level
+--join Hackers table with submisssion table to have score for each hacker by hacker.id
+join  Hackers H on H.hacker_id = S.hacker_id
+-- return condition if hacker score in specific challenge = full score of that challenge
+where S.score = D.score
+-- group the previous result 
+group by H.name,H.hacker_id
+-- return condition have full score more than 1 mean have more than 2 challenge_id which have S.score = D.score
+having count(S.challenge_id)>1
+order by count(S.hacker_id) desc, H.hacker_id asc
+
+--SECOND METHOD(run on mySQL)
+-- select h.hacker_id, h.name
+-- from submissions s
+-- inner join challenges c
+-- on s.challenge_id = c.challenge_id
+-- inner join difficulty d
+-- on c.difficulty_level = d.difficulty_level
+-- inner join hackers h
+-- on s.hacker_id = h.hacker_id
+-- where s.score = d.score and c.difficulty_level = d.difficulty_level
+-- group by h.hacker_id, h.name
+-- having count(s.hacker_id) > 1
+-- order by count(s.hacker_id) desc, s.hacker_id asc
+
+
+--THIRD METHOD
+-- select h.hacker_id,h.name from submissions s, hackers h,challenges c ,difficulty d
+-- where h.hacker_id=s.hacker_id
+-- and c.challenge_id=s.challenge_id
+-- and c.difficulty_level=d.difficulty_level
+-- and s.score=d.score
+-- group by h.hacker_id,h.name 
+   having count(h.hacker_id)>1
+-- order by count(c.challenge_id) desc,h.hacker_id asc

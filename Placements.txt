@@ -1,0 +1,11 @@
+-- Part 1 doing the first join to take the salary of student
+-- doing second join to know the student friend ID
+--doing the third join to know student friend salary
+-- compare with student ID 
+select S.Name from Students S
+ join Packages P on P.ID=S.ID
+ join Friends F on F.ID=P.ID
+ JOIN PACKAGES P2
+ON F.FRIEND_ID = P2.ID
+WHERE P2.SALARY > P.SALARY
+order by P2.SALARY

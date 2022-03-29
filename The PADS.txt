@@ -1,0 +1,8 @@
+select concat(Name,'(',left(Occupation,1),')')
+from OCCUPATIONS
+order by Name
+-- Use count to find the number of Occupation then use group by ocuupation to know the ocurrences of each Occupation then use concat function to have result
+select concat("There are a total of ",count(Occupation)," ",lower(Occupation),"s.") from OCCUPATIONS
+group by Occupation
+--ocurrencess = count(Occupation)
+order by count(Occupation) , Occupation
